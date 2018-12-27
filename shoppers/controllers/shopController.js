@@ -1,4 +1,5 @@
 const express = require('express');
+const productModel = require('../models/productModel');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -7,7 +8,18 @@ router.get('/', (req, res) => {
         res.render('shop/shop');
     }
     else {
-        res.render('shop/shop-single');
+        productModel.loadProduct(proID).then (rows => {
+            if (rows.length > 0) {
+                var vm = {
+                    thisProduct: rows[0]
+                }
+                res.render('shop/shop-single', vm);
+            }
+            else {
+                res.redirect('/shop');
+            }
+        });
+        
     }
 });
 

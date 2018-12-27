@@ -1,1 +1,0 @@
-import vào database tên "dmt" trong mySQL (XAMPP)

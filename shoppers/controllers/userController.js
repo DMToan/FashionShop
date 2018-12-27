@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     var action = req.query.id;
-    console.log(action);
+    //console.log(action);
     if (action == "login") {
         res.render('user/login');
     }
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             var vm = {
                 User: res.locals.layoutVM.curUser
             }
-            console.log(vm);
+            //console.log(vm);
             res.render('user/profile', vm);
         }
         else {
@@ -39,12 +39,12 @@ router.post('/', (req, res) => {
             user: req.body.input_user,
             pass: req.body.input_pass
         }
-        console.log(info);
+        //console.log(info);
         userModel.login(info).then (rows => {
             if (rows.length > 0) {
                 req.session.isLogged = true;
                 req.session.user = rows[0];
-                console.log(req.session.user);
+                //console.log(req.session.user);
                 res.redirect('/');
             }
             else {
@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
             var vm = {
                 User: res.locals.layoutVM.curUser
             }
-            console.log(vm);
+            //console.log(vm);
             res.render('user/profile', vm);
         }
         else {

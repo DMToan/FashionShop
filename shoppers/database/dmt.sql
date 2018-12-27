@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2018 at 04:58 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Dec 27, 2018 at 09:02 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -61,6 +61,13 @@ CREATE TABLE `brand` (
   `description` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `brand`
+--
+
+INSERT INTO `brand` (`id`, `name`, `description`) VALUES
+(1, 'YAME', 'abcdef');
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +112,14 @@ CREATE TABLE `product` (
   `rating_1` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='thông tin sản phẩm';
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `cat_id`, `brand_id`, `name`, `img`, `description`, `price`, `total_like`, `total_bought`, `in_storage`, `rating_avg`, `rating_5`, `rating_4`, `rating_3`, `rating_2`, `rating_1`) VALUES
+(1, 1, 1, 'Tank top', '', 'A sleeveless shirt is a shirt manufactured without sleeves, or whose sleeves have been cut off. Sleeveless shirts are worn by people of any gender, depending on the style. They are used as undershirts, or worn by athletes in sports such as track and field and triathlon, and are regarded as acceptable public casual dress in most warm-weather locales.', 300000, 0, 0, 4, 3, 0, 1, 0, 1, 0),
+(2, 2, 1, 'Áo in hình ngôi sao', '', 'Áo sơ-mi (bắt nguồn từ tiếng Pháp: chemise)[1] là loại hàng may mặc bao bọc lấy thân mình và hai cánh tay của cơ thể. Ở thế kỷ 19, sơ mi là một loại áo lót bằng vải dệt mặc sát da thịt. Ngày nay, sơ mi có cổ áo, tay áo và hàng nút phía trước. Phiên bản dành cho nữ được gọi là sơ mi nữ (tiếng Pháp: chemisier). Sơ mi được đặc trưng bởi loại vải dệt nên nó. Vải bông (cotton) là vật liệu được dùng nhiều nhất, ngoài ra còn có vải lanh, lụa và vật liệu thuần tổng hợp hay có pha lẫn sợi bông.\r\n\r\nTùy theo mốt và phép lịch sự mà có thể chọn lựa cho áo sơ mi vào quần (\"đóng thùng\") hay không. Có thể mặc sơ mi kèm cà vạt ở cổ áo. ', 99000, 0, 0, 15, 5, 1, 0, 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -116,6 +131,13 @@ CREATE TABLE `sessions` (
   `expires` int(11) UNSIGNED NOT NULL,
   `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
+('zApFQ5zcHjPViUVYd2On7P50xqvE7ouh', 1546027320, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"user\":{\"id\":2,\"username\":\"user\",\"password\":\"user\",\"email\":\"user@mail.com\",\"phone\":\"0123456789\",\"type\":0}}');
 
 -- --------------------------------------------------------
 
@@ -131,6 +153,14 @@ CREATE TABLE `user` (
   `phone` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='thông tin người dùng';
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `phone`, `type`) VALUES
+(1, 'admin', 'admin', 'admin@email.com', '0987654321', 1),
+(2, 'user', 'user', 'user@mail.com', '0123456789', 0);
 
 --
 -- Indexes for dumped tables
@@ -196,7 +226,7 @@ ALTER TABLE `bill_list`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -208,13 +238,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

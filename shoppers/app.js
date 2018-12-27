@@ -4,7 +4,7 @@ const express_handlebars_sections = require('express-handlebars-sections');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
-//const wnumb = require('wnumb');
+const wnumb = require('wnumb');
 
 const homeController = require('./controllers/homeController'),
       userController = require('./controllers/userController'),
@@ -21,7 +21,13 @@ app.engine('hbs', exphbs({
     defaultLayout: 'index',
     layoutsDir: 'views/_home/',
     helpers: {
-        section: express_handlebars_sections()
+        section: express_handlebars_sections(),
+        number_format: n => {
+            var nf = wnumb({
+                thousand: '.'
+            });
+            return nf.to(n);
+        },
     }
 }));
 app.set('view engine', 'hbs');
