@@ -11,10 +11,16 @@ module.exports = (req, res, next) => {
         }
     }
 
+    var notUser = true;
+    if (req.path.indexOf("user") > -1) {
+        notUser = false;
+    }
+
     res.locals.layoutVM = {
         isLogged: req.session.isLogged,
         curUser: req.session.user,
-        username: cur_username
+        username: cur_username,
+        notUser: notUser
     };
     next();
 };

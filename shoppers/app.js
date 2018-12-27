@@ -4,10 +4,10 @@ const express_handlebars_sections = require('express-handlebars-sections');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
-const wnumb = require('wnumb');
+//const wnumb = require('wnumb');
 
 const homeController = require('./controllers/homeController'),
-      accountController = require('./controllers/accountController'),
+      userController = require('./controllers/userController'),
       shopController = require('./controllers/shopController'),
       cartController = require('./controllers/cartController');
 
@@ -24,8 +24,8 @@ app.engine('hbs', exphbs({
         section: express_handlebars_sections()
     }
 }));
-
 app.set('view engine', 'hbs');
+
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -67,7 +67,7 @@ app.get('/index', (req, res) => {
 });
 
 app.use('/', homeController);
-app.use('/account', accountController);
+app.use('/user', userController);
 app.use('/shop', shopController);
 app.use('/cart', cartController);
 
