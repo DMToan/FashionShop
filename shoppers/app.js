@@ -46,6 +46,14 @@ var sessionStore = new MySQLStore({
     }
 });
 
+app.use(session({
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use(handleLayout);
 
 app.get('/home', (req, res) => {
