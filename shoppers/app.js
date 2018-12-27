@@ -20,6 +20,9 @@ const port = 3000;
 app.engine('hbs', exphbs({
     defaultLayout: 'index',
     layoutsDir: 'views/_home/',
+    helpers: {
+        section: express_handlebars_sections()
+    }
 }));
 
 app.set('view engine', 'hbs');

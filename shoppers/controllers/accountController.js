@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     //res.render('account/profile');
     if (res.locals.layoutVM.isLogged == true) {
-        res.redirect('/');
+        res.redirect('/account/profile');
     }
     else {
         res.redirect('/account/login');
@@ -34,6 +34,19 @@ router.post('/login', (req, res) => {
             res.redirect('/account');
         }
     })
+});
+
+router.get('/profile', (req, res) => {
+    if (res.locals.layoutVM.isLogged === true) {
+        var vm = {
+            User: res.locals.layoutVM.curUser
+        }
+        console.log(vm);
+        res.render('account/profile', vm);
+    }
+    else {
+        res.redirect('/account');
+    }
 });
 
 module.exports = router;
