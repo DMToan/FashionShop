@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2018 at 09:02 PM
+-- Generation Time: Dec 29, 2018 at 02:02 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -66,7 +66,12 @@ CREATE TABLE `brand` (
 --
 
 INSERT INTO `brand` (`id`, `name`, `description`) VALUES
-(1, 'YAME', 'abcdef');
+(1, 'YAME', 'abcdef'),
+(2, 'skiny', 'Hãng thời trang dành cho giới trẻ'),
+(3, 'bebe store', ''),
+(4, 'Adidas', 'Hãng giày hàng đầu thế giới'),
+(5, 'No style', ''),
+(6, 'KiriMaru', '');
 
 -- --------------------------------------------------------
 
@@ -84,8 +89,12 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'áo khoác'),
-(2, 'áo sơ-mi');
+(1, 'Áo khoác'),
+(2, 'Áo sơ-mi'),
+(3, 'Quần Jean'),
+(4, 'Giày'),
+(5, 'Quần tây'),
+(6, 'Áo thun');
 
 -- --------------------------------------------------------
 
@@ -117,8 +126,36 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `cat_id`, `brand_id`, `name`, `img`, `description`, `price`, `total_like`, `total_bought`, `in_storage`, `rating_avg`, `rating_5`, `rating_4`, `rating_3`, `rating_2`, `rating_1`) VALUES
-(1, 1, 1, 'Tank top', '', 'A sleeveless shirt is a shirt manufactured without sleeves, or whose sleeves have been cut off. Sleeveless shirts are worn by people of any gender, depending on the style. They are used as undershirts, or worn by athletes in sports such as track and field and triathlon, and are regarded as acceptable public casual dress in most warm-weather locales.', 300000, 0, 0, 4, 3, 0, 1, 0, 1, 0),
-(2, 2, 1, 'Áo in hình ngôi sao', '', 'Áo sơ-mi (bắt nguồn từ tiếng Pháp: chemise)[1] là loại hàng may mặc bao bọc lấy thân mình và hai cánh tay của cơ thể. Ở thế kỷ 19, sơ mi là một loại áo lót bằng vải dệt mặc sát da thịt. Ngày nay, sơ mi có cổ áo, tay áo và hàng nút phía trước. Phiên bản dành cho nữ được gọi là sơ mi nữ (tiếng Pháp: chemisier). Sơ mi được đặc trưng bởi loại vải dệt nên nó. Vải bông (cotton) là vật liệu được dùng nhiều nhất, ngoài ra còn có vải lanh, lụa và vật liệu thuần tổng hợp hay có pha lẫn sợi bông.\r\n\r\nTùy theo mốt và phép lịch sự mà có thể chọn lựa cho áo sơ mi vào quần (\"đóng thùng\") hay không. Có thể mặc sơ mi kèm cà vạt ở cổ áo. ', 99000, 0, 0, 15, 5, 1, 0, 0, 0, 0);
+(4, 3, 2, 'Quần Jean Skinny xanh', 'quan-jeans-skinny-bac-qj1524_2_small-9034-t.jpg', '30', 395000, 4, 10, 5, 0, 1, 2, 1, 1, 0),
+(5, 3, 2, 'Quần Jean Skinny xanh biển', 'quan-jeans-skinny-xanh-bien-qj1542_2_small-10303-t.jpg', '', 375000, 20, 10, 5, 4, 6, 2, 5, 0, 0),
+(6, 3, 2, 'Quần Jean Skinny bạc', 'quan-jeans-skinny-bac-qj1616_2_small-10298-t.jpg', '', 395000, 15, 12, 9, 3, 1, 2, 4, 2, 1),
+(7, 3, 2, 'Quần Jean Skinny đen', 'quan-jeans-skinny-den-qj1526_2_small-9036-t.jpg', '', 325000, 9, 10, 4, 0, 1, 2, 4, 1, 0),
+(8, 3, 2, 'Quần Jean Skinny xanh đen', 'quan-jeans-skinny-xanh-den-qj1537_2_small-9367-t.jpg', '', 350000, 13, 10, 15, 4, 4, 4, 4, 0, 0),
+(9, 1, 1, 'Áo Khoác Nam Ma Bư Dù', '9a25ad27-759a-8400-9bf7-00151912a065.jpg', 'Phong cách trẻ trung', 425000, 16, 15, 20, 3.8, 1, 2, 4, 1, 1),
+(10, 1, 1, 'Áo Khoác Nam Ma Bư Dù Xám', '6fb0e87a-64be-4500-90e1-00151b7c07b1.jpg', 'Phong cách mới mẻ', 325000, 10, 12, 15, 3.8, 1, 2, 4, 1, 1),
+(11, 1, 1, 'Áo Khoác Nam Ma Bư Thun', '294f5ea6-9238-2900-923b-00152cc0e503.jpg', 'Phong cách mới mẻ', 285000, 10, 12, 20, 4.5, 6, 4, 2, 0, 0),
+(12, 1, 1, 'Áo Khoác Nam No Style', '993ff87a-bec2-4b00-fc43-0014f8e34413.jpg', 'Phong cách hiện đại', 285000, 10, 12, 20, 4, 4, 4, 1, 0, 0),
+(13, 1, 1, 'Áo Khoác Nam Ma Bư Thun xám trắng', '9ba3508e-ac32-4c00-ae69-0014976fb849.jpg', 'Phong cách mới mẻ', 255000, 10, 12, 20, 4, 4, 4, 1, 0, 0),
+(14, 2, 3, 'Áo sơ mi nam Vải Kẻ chất Đũi', '8fea39782d035bb023c836b8050d8e12.jpeg', '', 150000, 13, 12, 25, 3.8, 3, 4, 4, 2, 0),
+(15, 2, 3, 'Áo sơ mi cổ tàu trắng', 'ao-so-mi-co-tau-trang.jpg', '', 175000, 14, 22, 30, 4, 7, 10, 3, 2, 0),
+(16, 2, 3, 'Áo sơ mi cổ trụ', 'ao-so-mi-nam-co-tru.jpg', '', 150000, 15, 25, 30, 4.3, 15, 10, 3, 2, 0),
+(17, 2, 3, 'Áo sơ mi nam form rong', 'ao-so-mi-nam-form-rong.jpg', '', 200000, 18, 20, 35, 3.9, 5, 10, 10, 2, 0),
+(18, 2, 3, 'Áo sơ mi nam tay lỡ', 'ao-so-mi-nam-tay-lo.jpg', '', 160000, 30, 20, 30, 3.5, 5, 7, 10, 5, 3),
+(19, 4, 4, 'Giày Adidas Alpha bounce đen', 'giay-adidas-alpha-bounce-den_200x200.jpg', '', 350000, 16, 20, 30, 4.2, 7, 4, 2, 3, 1),
+(20, 4, 4, 'Giày Adidas Yzy V2 Offwhite xám đen', 'giay-adidas-yzy-v2-offwhite-xam-den.jpg', '', 370000, 20, 15, 20, 3.8, 2, 6, 7, 2, 1),
+(21, 4, 4, 'Giày adidas Yzy V2 Offwhite xám', 'giay-adidas-yzy-v2-offwhite-xam.jpg', '', 370000, 20, 15, 25, 4.3, 4, 7, 2, 1, 0),
+(22, 4, 4, 'Giày adidas Yzy V2 Offwhite đen', 'giay-adidas-yzy-v2-offwhite-den.jpg', '', 370000, 20, 15, 25, 4, 3, 7, 2, 1, 0),
+(23, 4, 4, 'Giày Adidas Ultraboost đen', 'giay-adidas-ultraboost-den.jpg', '', 350000, 30, 12, 25, 3.8, 1, 5, 7, 1, 1),
+(24, 5, 5, 'Quần Tây Nam No Style Dài đen', '7beac2af-9a2b-2500-183b-001506e1cb5f.jpg', '', 425000, 10, 7, 10, 3.2, 0, 2, 4, 1, 0),
+(25, 5, 5, 'Quần Tây Nam No Style Dài nâu', 'bc9c9562-4f7b-5000-3996-00130c201f8b.jpg', '', 275000, 10, 5, 10, 3, 0, 1, 3, 1, 0),
+(26, 5, 5, 'Quần Tây Nam No Style Dài đen xám', '0861493b-60b9-e300-7989-001516af5c03.jpg', '', 325000, 12, 6, 10, 3.2, 0, 2, 3, 1, 0),
+(27, 5, 5, 'Quần Tây Nam No Style Dài đen đỏ', '62253245-ccf7-0500-eed0-00145eacee6f.jpg', '', 375000, 11, 8, 10, 3.2, 0, 3, 3, 2, 0),
+(28, 5, 5, 'Quần Tây Nam No Style Dài xanh đen', '6eaee069-d1e7-f700-bfa4-0014c50f2a81.jpg', '', 325000, 10, 7, 15, 3.5, 1, 3, 3, 1, 0),
+(29, 6, 6, 'Áo Thun Nam KiriMaru trắng', '54e89f1b-2c1e-3600-55ca-00140b91eb5f.jpg', '', 120000, 10, 8, 15, 3.6, 1, 1, 5, 1, 0),
+(30, 6, 6, 'Áo Thun Nam KiriMaru đen', '80c46834-3f0d-4800-5273-00140b936093.jpg', '', 130000, 12, 9, 18, 3.3, 0, 2, 5, 2, 0),
+(31, 6, 6, 'Áo Thun Nam KiriMaru xám đen', 'c1036f09-66d6-5000-00e8-00140b93ea4c.jpg', '', 110000, 14, 7, 18, 3, 0, 1, 5, 1, 0),
+(32, 6, 6, 'Áo Thun Nam KiriMaru xám trắng', '8d000315-a6f9-5100-d9d0-00140b93f114.jpg', '', 110000, 14, 5, 18, 3, 0, 1, 3, 1, 0),
+(33, 6, 6, 'Áo Thun Nam KiriMaru xanh đá', '6a52ae29-1ca5-5200-236a-00140b93f6b2.jpg', '', 110000, 14, 6, 18, 3.2, 0, 2, 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -137,7 +174,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('zApFQ5zcHjPViUVYd2On7P50xqvE7ouh', 1546027320, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"user\":{\"id\":2,\"username\":\"user\",\"password\":\"user\",\"email\":\"user@mail.com\",\"phone\":\"0123456789\",\"type\":0}}');
+('hAiZW-BsKqNYtULuO5Ee2odrW7cJGSFs', 1546174923, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"user\":{\"id\":2,\"username\":\"user\",\"password\":\"user\",\"email\":\"user@mail.com\",\"phone\":\"0123456789\",\"type\":0}}');
 
 -- --------------------------------------------------------
 
@@ -226,19 +263,19 @@ ALTER TABLE `bill_list`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user`
