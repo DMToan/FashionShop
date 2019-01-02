@@ -113,8 +113,8 @@
                   <img src="images/product/{{img}}" alt="Image placeholder" class="img-fluid">
                 </figure>
                 <div class="block-4-text p-4">
-                  <h3>{{name}}</h3>
-                  <p class="mb-0">{{#if description}}{{description}}{{else}}<i>null</i>{{/if}}</p>
+                  <h3 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{name}}</h3>
+                  <p class="mb-0" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{#if description}}{{description}}{{else}}<i>null</i>{{/if}}</p>
                   <p class="text-primary font-weight-bold">{{number_format price}}₫</p>
                 </div>
                 </a>

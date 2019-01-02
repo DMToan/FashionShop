@@ -52,11 +52,11 @@
             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="/shop?id={{id}}"><img src="images/product/{{img}}" alt="Image placeholder" class="img-fluid"></a>
+                  <a href="/shop?id={{id}}"><img src="images/product/{{img}}" alt="Image placeholder" class="img-fluid" style="height: 337px;"></a>
                 </figure>
                 <div class="block-4-text p-4">
                   <h3 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis"><a href="/shop?id={{id}}">{{name}}</a></h3>
-                  <p class="mb-0">{{#if description}}{{description}}{{else}}<i>null</i>{{/if}}</p>
+                  <p class="mb-0" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{#if description}}{{description}}{{else}}<i>null</i>{{/if}}</p>
                   <p class="text-primary font-weight-bold">{{number_format price}}₫</p>
                 </div>
               </div>
