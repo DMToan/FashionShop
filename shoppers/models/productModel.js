@@ -20,3 +20,8 @@ exports.countTotal = () => {
 	var sql = `select count(*) as total from product`;
     return database.load(sql);
 }
+
+exports.loadBestSeller = () => {
+	var sql = `select * from product ORDER BY total_bought DESC limit 5`;
+    return database.load(sql);
+}

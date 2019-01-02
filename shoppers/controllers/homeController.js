@@ -1,8 +1,15 @@
 const express = require('express');
+const productModel = require('../models/productModel');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('_home/home');
+    productModel.loadBestSeller().then(rows => {
+        var vm = {
+            products:rows
+        }
+        res.render('_home/home', vm);
+    })
+    
 });
 
 router.get('/about', (req, res) => {
