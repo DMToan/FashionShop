@@ -12,7 +12,8 @@ const homeController = require('./controllers/homeController'),
       cartController = require('./controllers/cartController'),
       adminController = require('./controllers/adminController');
 
-const handleLayout = require('./middle-wares/handleLayout');
+const handleLayout = require('./middle-wares/handleLayout'),
+      handle404 = require('./middle-wares/handle404');
 
 
 const app = express();
@@ -78,6 +79,8 @@ app.use('/user', userController);
 app.use('/shop', shopController);
 app.use('/cart', cartController);
 app.use('/admin', adminController);
+
+app.use(handle404);
 
 app.listen(port, () => {
     console.log("Running on port " + port);

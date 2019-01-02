@@ -25,3 +25,8 @@ exports.loadBestSeller = () => {
 	var sql = `select * from product ORDER BY total_bought DESC limit 5`;
     return database.load(sql);
 }
+
+exports.loadSameBrand = (thisProduct) => {
+	var sql = `SELECT * FROM product WHERE brand_id = '${thisProduct.brand_id}' AND id != '${thisProduct.id}' ORDER BY total_bought DESC limit 5`;
+    return database.load(sql);
+}

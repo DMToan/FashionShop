@@ -41,10 +41,13 @@ router.get('/', (req, res) => {
     else {
         productModel.loadProduct(proID).then (rows => {
             if (rows.length > 0) {
-                var vm = {
-                    thisProduct: rows[0]
-                }
-                res.render('shop/shop-single', vm);
+                productModel.loadSameBrand(rows[0]).then(same => {
+                    var vm = {
+                        thisProduct: rows[0],
+                        sameProduct: same
+                    }
+                    res.render('shop/shop-single', vm);
+                });
             }
             else {
                 res.redirect('/shop');

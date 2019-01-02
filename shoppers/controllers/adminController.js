@@ -30,4 +30,12 @@ router.get('/', (req, res) => {
     }
 })
 
+router.post('/', (req, res) => {
+    var ref = req.query.ref;
+    if (ref == 'logout') {
+        req.session.isLogged = false;
+        res.redirect('/');
+    }
+})
+
 module.exports = router;
