@@ -55,8 +55,8 @@
                   <a href="/shop?id={{id}}"><img src="images//product/{{img}}" alt="Image placeholder" class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
-                  <h3><a href="/shop?id={{id}}">{{name}}</a></h3>
-                  <p class="mb-0">{{description}}</p>
+                  <h3 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis"><a href="/shop?id={{id}}">{{name}}</a></h3>
+                  <p class="mb-0">{{#if description}}{{description}}{{else}}<i>null</i>{{/if}}</p>
                   <p class="text-primary font-weight-bold">{{number_format price}}₫</p>
                 </div>
               </div>

@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
             page = 1;
         }
         var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
-        var p1 = productModel.loadAll(offset);
+        var p1 = productModel.loadAllOffset(offset);
         var p2 = productModel.countTotal();
         Promise.all([p1, p2]).then(([pRows, countRows]) => {
             var total = countRows[0].total;

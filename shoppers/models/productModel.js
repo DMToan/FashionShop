@@ -6,7 +6,12 @@ exports.loadProduct = (id) => {
     return database.load(sql);
 }
 
-exports.loadAll = (offset) => {
+exports.loadAll = () => {
+    var sql = `select * from product`;
+    return database.load(sql);
+}
+
+exports.loadAllOffset = (offset) => {
     var sql = `select * from product limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     return database.load(sql);
 }

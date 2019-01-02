@@ -25,7 +25,7 @@ app.engine('hbs', exphbs({
         section: express_handlebars_sections(),
         number_format: n => {
             var nf = wnumb({
-                thousand: '.'
+                thousand: ','
             });
             return nf.to(n);
         },
