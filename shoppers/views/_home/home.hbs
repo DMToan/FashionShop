@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <div class="site-section site-blocks-2">
+  {{!-- <div class="site-section site-blocks-2">
     <div class="container">
       <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
@@ -93,7 +93,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <div class="site-section block-3 site-blocks-2 bg-light">
     <div class="container">
@@ -108,14 +108,16 @@
             {{#each products}}
             <div class="item">
               <div class="block-4 text-center">
+                <a href="/shop?id={{id}}">
                 <figure class="block-4-image">
                   <img src="images/product/{{img}}" alt="Image placeholder" class="img-fluid">
                 </figure>
                 <div class="block-4-text p-4">
-                  <h3><a href="#">{{name}}</a></h3>
+                  <h3>{{name}}</h3>
                   <p class="mb-0">{{#if description}}{{description}}{{else}}<i>null</i>{{/if}}</p>
                   <p class="text-primary font-weight-bold">{{number_format price}}₫</p>
                 </div>
+                </a>
               </div>
             </div>
             {{/each}}
@@ -125,7 +127,7 @@
     </div>
   </div>
 
-  <div class="site-section block-8">
+  {{!-- <div class="site-section block-8">
     <div class="container">
       <div class="row justify-content-center  mb-5">
         <div class="col-md-7 site-section-heading text-center pt-4">
@@ -146,5 +148,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 </div>
