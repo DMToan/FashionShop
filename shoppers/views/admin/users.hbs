@@ -50,6 +50,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
+                        <form id="frmLogout" method="post" action="/admin?ref=logout"></form>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -59,10 +60,7 @@
                                 </p>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" href="#" onclick="log_out()">Log out</a>
                             </div>
                         </li>
                     </ul>
@@ -139,12 +137,13 @@
 <!--  Notifications Plugin    -->
 <script src="js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script>
     $(document).ready(function () {
         // Javascript method's body can be found in assets/js/demos.js
         md.initDashboardPageCharts();
 
     });
+    function log_out() {
+		document.getElementById("frmLogout").submit();
+	};
 </script>

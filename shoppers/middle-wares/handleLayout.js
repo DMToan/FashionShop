@@ -1,4 +1,5 @@
 module.exports = (req, res, next) => {
+    var isAdmin = false;
     if (req.session.isLogged === null) {
 		req.session.isLogged = false;
     } else {
@@ -8,7 +9,6 @@ module.exports = (req, res, next) => {
             } else {
                 var cur_username = req.session.user.username;
             }
-            var isAdmin = false;
             if (req.session.user.type == 1) {
                 isAdmin = true;
             }
@@ -27,5 +27,21 @@ module.exports = (req, res, next) => {
         isAdmin: isAdmin,
         notUser: notUser
     };
-    next();
+    if (isAdmin == true) {
+        if (req.path.indexOf("admin") > -1) {
+            next();
+        }
+        else {
+            res.redirect('/admin');
+        }
+    }
+    else {
+        if (req.path.indexOf("admin") > -1) {
+            res.redirect('/');
+        }
+        else {
+            next();
+        }
+    }
+    //next();
 };
