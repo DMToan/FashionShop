@@ -8,6 +8,10 @@ module.exports = (req, res, next) => {
             } else {
                 var cur_username = req.session.user.username;
             }
+            var isAdmin = false;
+            if (req.session.user.type == 1) {
+                isAdmin = true;
+            }
         }
     }
 
@@ -20,6 +24,7 @@ module.exports = (req, res, next) => {
         isLogged: req.session.isLogged,
         curUser: req.session.user,
         username: cur_username,
+        isAdmin: isAdmin,
         notUser: notUser
     };
     next();

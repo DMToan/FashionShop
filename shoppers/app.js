@@ -9,7 +9,8 @@ const wnumb = require('wnumb');
 const homeController = require('./controllers/homeController'),
       userController = require('./controllers/userController'),
       shopController = require('./controllers/shopController'),
-      cartController = require('./controllers/cartController');
+      cartController = require('./controllers/cartController'),
+      adminController = require('./controllers/adminController');
 
 const handleLayout = require('./middle-wares/handleLayout');
 
@@ -76,6 +77,7 @@ app.use('/', homeController);
 app.use('/user', userController);
 app.use('/shop', shopController);
 app.use('/cart', cartController);
+app.use('/admin', adminController);
 
 app.listen(port, () => {
     console.log("Running on port " + port);

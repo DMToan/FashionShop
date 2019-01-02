@@ -6,10 +6,10 @@ const router = express.Router();
 router.get('/', (req, res) => {
     var action = req.query.id;
     //console.log(action);
-    if (action == "login") {
+    if (action == 'login') {
         res.render('user/login');
     }
-    else if (action == "profile") {
+    else if (action == 'profile') {
         if (res.locals.layoutVM.isLogged === true) {
             var vm = {
                 User: res.locals.layoutVM.curUser
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     var action = req.query.id;
     // login
-    if (action == "login") {
+    if (action == 'login') {
         var info = {
             user: req.body.input_user,
             pass: req.body.input_pass
@@ -45,7 +45,13 @@ router.post('/', (req, res) => {
                 req.session.isLogged = true;
                 req.session.user = rows[0];
                 //console.log(req.session.user);
-                res.redirect('/');
+                if (req.session.user.type == 1) {
+                    res.redirect('/admin');
+                }
+                else {
+                    res.redirect('/');
+                    //res.redirect(req.originalUrl);
+                }
             }
             else {
                 res.redirect('/user');
@@ -53,7 +59,7 @@ router.post('/', (req, res) => {
         });
     }
     // view profile
-    else if (action == "profile") {
+    else if (action == 'profile') {
         if (res.locals.layoutVM.isLogged === true) {
             var vm = {
                 User: res.locals.layoutVM.curUser
@@ -64,6 +70,10 @@ router.post('/', (req, res) => {
         else {
             res.redirect('/user');
         }
+    }
+    else if (action == 'logout') {
+        req.session.isLogged = false;
+        res.redirect('/');
     }
     else {
         res.redirect('/user');

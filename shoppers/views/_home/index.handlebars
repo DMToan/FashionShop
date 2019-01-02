@@ -24,6 +24,9 @@
 </head>
 
 <body>
+  {{#if layoutVM.isAdmin}}
+  {{{body}}}
+  {{else}}
   <header class="site-navbar" role="banner">
     <div class="site-navbar-top">
       <div class="container">
@@ -46,19 +49,28 @@
             <div class="site-top-icons">
               <ul>
                 <li>
-                  {{!-- chưa login --}}
-                  <a href="user"><span class="icon icon-person"></span></a>
-                  {{!-- chưa login --}}
-
+                  <form id="frmLogout" method="post" action="/user?id=logout"></form>
+                  {{#if layoutVM.isLogged}}
                   {{!-- đã login --}}
-                  {{!-- <div class="dropdown">
+                  <div class="dropdown">
                     <a href="#" data-toggle="dropdown"><span class="icon icon-person"></span></a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                      <a href="#" class="dropdown-item">Profile</a>
-                      <a href="#" class="dropdown-item">Logout</a>
+                      <a href="user?id=profile" class="dropdown-item">Profile</a>
+                      <a href="#" class="dropdown-item" onclick="log_out()">Logout</a>
                     </div>
-                  </div> --}}
+                  </div>
                   {{!-- đã login --}}
+                  {{else}}
+                  {{!-- chưa login --}}
+                  <div class="dropdown">
+                    <a href="#" data-toggle="dropdown"><span class="icon icon-person"></span></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                      <a href="user?id=login" class="dropdown-item">Login</a>
+                      <a href="user?id=register" class="dropdown-item">Register</a>
+                    </div>
+                  </div>
+                  {{!-- chưa login --}}
+                  {{/if}}
                 </li>
                 <li>
                   <a href="cart" class="site-cart">
@@ -172,6 +184,7 @@
     </div>
   </footer>
   {{/if}}
+  {{/if}}
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -181,6 +194,11 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
+  <script>
+		function log_out() {
+			document.getElementById("frmLogout").submit();
+		};
+	</script>
 </body>
 
 </html>
