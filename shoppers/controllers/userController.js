@@ -58,8 +58,9 @@ router.post('/', (req, res) => {
             }
         });
     }
-    // view profile
+    // update profile
     else if (action == 'profile') {
+        console.log('hello');
         if (res.locals.layoutVM.isLogged === true) {
             var vm = {
                 User: res.locals.layoutVM.curUser

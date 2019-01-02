@@ -6,7 +6,7 @@
   {{#with User}}
   <div class="row">
     <div class="col-sm-10">
-      <h1>{{username}}</h1>
+      <h1>Profile</h1>
     </div>
   </div>
   <div class="row">
@@ -25,8 +25,7 @@
     <div class="col-sm-9">
       <div class="tab-content">
         <div class="tab-pane active" id="home">
-          <hr>
-          <form class="form" action="##" method="post" id="registrationForm">
+          <form class="form" action="/user?id=profile" method="post" id="updateInfoForm">
 
             <div class="form-group">
               <div class="col-xs-6">
@@ -87,7 +86,6 @@
             </div>
           </form>
 
-          <hr>
 
         </div>
         <!--/tab-pane-->
