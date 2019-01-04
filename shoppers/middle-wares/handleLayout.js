@@ -15,6 +15,10 @@ module.exports = (req, res, next) => {
         }
     }
 
+    if (req.session.cart === undefined) {
+        req.session.cart = [];
+    }
+
     var notUser = true;
     if (req.path.indexOf("user") > -1) {
         notUser = false;

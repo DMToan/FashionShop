@@ -9,7 +9,8 @@
       </div>
     </div>
   </div>
-
+  <form class="form-horizontal" id="frmAddItem" method="post" action="/cart?ref=add">
+  <input name="id" type="hidden" value="{{id}}">
   <div class="site-section">
     <div class="container">
       <div class="row">
@@ -43,7 +44,7 @@
               <div class="input-group-prepend">
                 <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
               </div>
-              <input type="text" class="form-control text-center" value="1" min="1" max="{{in_storage}}" placeholder="" aria-label="Example text with button addon"
+              <input name="quantity" type="text" class="form-control text-center" value="1" min="1" max="{{in_storage}}" placeholder="" aria-label="Example text with button addon"
                 aria-describedby="button-addon1">
               <div class="input-group-append">
                 <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
@@ -51,12 +52,14 @@
             </div>
 
           </div>
-          <p><a href="cart" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+          
+          <button class="buy-now btn btn-sm btn-primary" type="submit">Add To Cart</button>
 
         </div>
       </div>
     </div>
   </div>
+  </form>
   {{/with}}
 
   <div class="site-section block-3 site-blocks-2 bg-light">
