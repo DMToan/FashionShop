@@ -21,6 +21,9 @@ router.get('/', (req, res) => {
             res.redirect('/user');
         }
     }
+    else if (action == 'history') {
+        res.render('user/history');
+    }
     else {
         if (res.locals.layoutVM.isLogged == true) {
             res.redirect('/user?id=profile');

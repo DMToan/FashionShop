@@ -1,9 +1,8 @@
-{{#section 'title'}}{{User.username}} — Shoppers{{/section}}
+{{#section 'title'}}My Orders — Shoppers{{/section}}
 
 <div class="site-wrap">
 </div>
 <div class="container bootstrap snippet">
-  {{#with User}}
   <div class="row">
     <div class="col-sm-10">
       <h1>My Orders</h1>
@@ -12,14 +11,6 @@
   <div class="row">
     <div class="col-sm-3">
       <!--left col-->
-      <div class="text-center">
-        {{!-- <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-        --}}
-        <img src="images/user/{{username}}.jpg" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
-      </div>
-      </hr><br>
 
     </div>
     <!--/col-3-->
@@ -82,5 +73,4 @@
       <!--/col-9-->
     </div>
   </div>
-  {{/with}}
-</div> 
+</div>
