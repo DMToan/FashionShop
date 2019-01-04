@@ -16,3 +16,14 @@ exports.remove = (cart, id) => {
         }
     }
 }
+
+exports.add = (cart, items) => {
+    for (var i = cart.length - 1; i >= 0; i--) {
+        for (var j = items.lenght - 1; j >= 0; j--) {
+            if (cart[i].id === items[j].id) {
+                cart[i].quantity = items[j].quantity;
+            }
+        }
+    }
+    return;
+}

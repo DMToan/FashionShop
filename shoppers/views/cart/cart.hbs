@@ -23,7 +23,7 @@
                   <th class="product-quantity">Quantity</th>
                   <th class="product-total">Total</th>
                   <th class="product-remove">Remove</th>
-                </tr>
+                </tr> 
               </thead>
               <tbody>
                 {{#each items}}
@@ -36,7 +36,7 @@
                   </td>
                   <td>{{number_format product.price}}₫</td>
                   <td>
-                    <div class="input-group mb-3" style="max-width: 200px;">
+                    <div class="input-group" style="max-width: 200px;margin-left: 73px;">
                       <div class="input-group-prepend">
                         <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                       </div>
@@ -48,7 +48,11 @@
                     </div>
                   </td>
                   <td>{{number_format total}}₫</td>
-                  <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
+                  <td>
+                    <form class="form-horizontal" id="frmDeleteItem" method="post" action="/cart?ref=remove&id={{product.id}}">
+                      <button class="btn btn-primary btn-sm" type="submit">X</button>
+                    </form>
+                  </td>
                 </tr>
                 {{/each}}
               </tbody>
@@ -61,7 +65,9 @@
         <div class="col-md-6">
           <div class="row mb-5">
             <div class="col-md-6 mb-3 mb-md-0">
-              <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+              <form class="form-horizontal" id="frmUpdateCart" method="post" action="/cart?ref=update">
+                <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+              </form>
             </div>
             <div class="col-md-6">
               <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>

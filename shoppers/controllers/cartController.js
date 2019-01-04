@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
         res.redirect(req.headers.referer);
     }
     else if (ref == 'remove') {
-        cartRepo.remove(req.session.cart, req.body.id);
+        cartModel.remove(req.session.cart, req.query.id);
         res.redirect(req.headers.referer);
     }
     else if (ref == 'update') {

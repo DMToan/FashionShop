@@ -14,9 +14,12 @@ module.exports = (req, res, next) => {
             }
         }
     }
-
+    var cartItems = 0;
     if (req.session.cart === undefined) {
         req.session.cart = [];
+    }
+    else {
+        cartItems = req.session.cart.length;
     }
 
     var notUser = true;
@@ -29,7 +32,8 @@ module.exports = (req, res, next) => {
         curUser: req.session.user,
         username: cur_username,
         isAdmin: isAdmin,
-        notUser: notUser
+        notUser: notUser,
+        cartItems: cartItems
     };
     if (isAdmin == true) {
         if (req.path.indexOf("admin") > -1) {
