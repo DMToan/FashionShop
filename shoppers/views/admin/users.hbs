@@ -80,7 +80,7 @@
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
-                                            <th>
+                                            <th class="text-center">
                                                 ID
                                             </th>
                                             <th>
@@ -92,14 +92,14 @@
                                             <th>
                                                 Phone
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 Admin
                                             </th>
                                         </thead>
                                         <tbody>
                                             {{#each users}}
                                             <tr>
-                                                <td>
+                                                <td class="text-center">
                                                     {{id}}
                                                 </td>
                                                 <td>
@@ -111,8 +111,8 @@
                                                 <td>
                                                     {{phone}}
                                                 </td>
-                                                <td class="text-primary">
-                                                    {{type}}
+                                                <td class="text-primary text-center">
+                                                    {{#if type}}✓{{else}}✕{{/if}}
                                                 </td>
                                             </tr>
                                             {{/each}}

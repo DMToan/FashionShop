@@ -4,9 +4,11 @@
 </div>
 <div class="container bootstrap snippet">
   {{#with User}}
-  <div class="row">
-    <div class="col-sm-10">
-      <h1>Profile</h1>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <a href="/user">User</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Profile</strong></div>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -25,14 +27,14 @@
     <div class="col-sm-9">
       <div class="tab-content">
         <div class="tab-pane active" id="home">
-          <form class="form" action="/user?id=profile" method="post" id="updateInfoForm">
+          <form class="form" method="post" id="updateInfoForm">
 
             <div class="form-group">
               <div class="col-xs-6">
                 <label for="user_name">
                   <h4>Name</h4>
                 </label>
-                <input type="text" class="form-control" name="last_name" id="user_name" value="{{username}}" readonly>
+                <input type="text" class="form-control" name="username" id="user_name" value="{{username}}" readonly>
               </div>
             </div>
 
@@ -61,7 +63,7 @@
                 <label for="password">
                   <h4>New Password</h4>
                 </label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                <input type="password" class="form-control" name="password" id="password" value="" placeholder="password" title="enter your new password.">
               </div>
             </div>
 
@@ -70,8 +72,8 @@
                 <label for="password2">
                   <h4>Verify Password</h4>
                 </label>
-                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2"
-                  title="enter your password2.">
+                <input type="password" class="form-control" name="password2" id="password2" value="" placeholder="password2"
+                  title="re-enter your new password.">
               </div>
             </div>
 

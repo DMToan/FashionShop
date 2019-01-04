@@ -30,3 +30,18 @@ exports.loadSameBrand = (thisProduct) => {
 	var sql = `SELECT * FROM product WHERE brand_id = '${thisProduct.brand_id}' AND id != '${thisProduct.id}' ORDER BY total_bought DESC limit 5`;
     return database.load(sql);
 }
+
+exports.loadAllCategories = () => {
+    var sql = `SELECT * from category`
+    return database.load(sql);
+}
+
+exports.loadAllByCategory = (cate, offset) => {
+    var sql = `SELECT * FROM product WHERE cat_id = '${cate}' limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`
+    return database.load(sql);
+}
+
+exports.countByCategory = (cate) => {
+    var sql = `SELECT COUNT(id) AS total FROM product WHERE cat_id = '${cate}'`
+    return database.load(sql);
+}

@@ -1,6 +1,7 @@
 const express = require('express');
 const restrict = require('../middle-wares/restrict');
 const userModel = require('../models/userModel');
+const orderModel = require('../models/orderModel');
 const productModel = require('../models/productModel');
 const router = express.Router();
 
@@ -23,7 +24,13 @@ router.get('/', (req, res) => {
         }) 
     }
     else if (ref == 'orders') {
-        res.render('admin/orders');
+        orderModel.loadAll().then(rows => {
+            var vm = {
+                bills: rows
+            }
+            res.render('admin/orders', vm);
+        })
+        
     }
     else {
         res.render('admin/dashboard');

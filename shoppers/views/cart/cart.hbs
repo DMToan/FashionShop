@@ -20,37 +20,36 @@
                   <th class="product-thumbnail">Image</th>
                   <th class="product-name">Product</th>
                   <th class="product-price">Price</th>
-                  <th class="product-quantity">Quantity</th>
+                  <th class="product-quantity col-md-2">Quantity</th>
                   <th class="product-total">Total</th>
                   <th class="product-remove">Action</th>
                 </tr> 
               </thead>
               <tbody>
                 {{#each items}}
+                <input name="id" type="hidden" value="{{product.id}}">
                 <tr>
                   <td class="product-thumbnail">
-                    <img src="images/product/{{product.img}}" alt="Image" class="img-fluid" style="max-height: 50px;">
+                    <img src="images/product/{{product.img}}" alt="Image" class="img-fluid" style="max-height: 80px;">
                   </td>
                   <td class="product-name">
                     <h2 class="h5 text-black">{{product.name}}</h2>
                   </td>
                   <td>{{number_format product.price}}₫</td>
                   <td>
-                    <div class="input-group" style="max-width: 200px;margin-left: 73px;">
-                      <div class="input-group-prepend">
-                        <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                      </div>
-                      <input type="text" class="form-control text-center" value="{{quantity}}" placeholder="" aria-label="Example text with button addon"
-                        aria-describedby="button-addon1">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                      </div>
+                    <div class="input-group" style="max-width: 200px;">
+                      <div class="input-group-prepend"><button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button></div>
+                      <input name="quantity" type="text" class="form-control text-center" value="{{quantity}}">
+                      <div class="input-group-append"><button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button></div>
                     </div>
                   </td>
                   <td>{{number_format total}}₫</td>
                   <td>
+                    <form class="form-horizontal" id="frmDeleteItem" method="post" action="/cart?ref=update&id={{product.id}}">
+                      <button class="btn btn-success btn-sm" type="submit">⭯</button>
+                    </form>
                     <form class="form-horizontal" id="frmDeleteItem" method="post" action="/cart?ref=remove&id={{product.id}}">
-                      <button class="btn btn-primary btn-sm" type="submit">X</button>
+                      <button class="btn btn-danger btn-sm" type="submit">✕</button>
                     </form>
                   </td>
                 </tr>
@@ -64,13 +63,11 @@
       <div class="row">
         <div class="col-md-6">
           <div class="row mb-5">
-            <div class="col-md-6 mb-3 mb-md-0">
-              <form class="form-horizontal" id="frmUpdateCart" method="post" action="/cart?ref=update">
-                <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
-              </form>
-            </div>
+            {{!-- <div class="col-md-6 mb-3 mb-md-0">
+              <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+            </div> --}}
             <div class="col-md-6">
-              <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+              <a href="/shop" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</a>
             </div>
           </div>
         </div>
@@ -101,8 +98,9 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout'">Proceed To
-                    Checkout</button>
+                  <form method="post" action="/cart?ref=confirm">
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout'">Proceed To Checkout</button>
+                  </form>
                 </div>
               </div>
             </div>

@@ -84,36 +84,38 @@
                                                 ID
                                             </th>
                                             <th>
-                                                Name
+                                                Customer
                                             </th>
                                             <th>
-                                                Country
+                                                Date
                                             </th>
                                             <th>
-                                                City
+                                                Status
                                             </th>
                                             <th>
-                                                Salary
+                                                Detail
                                             </th>
                                         </thead>
                                         <tbody>
+                                            {{#each bills}}
                                             <tr>
                                                 <td class="text-primary">
-                                                    1
+                                                    {{id}}
                                                 </td>
                                                 <td>
-                                                    Dakota Rice
+                                                    {{customer_id}}
                                                 </td>
                                                 <td>
-                                                    Niger
+                                                    {{add_day}}
                                                 </td>
                                                 <td>
-                                                    Oud-Turnhout
+                                                    {{status}}
                                                 </td>
                                                 <td>
-                                                    $36,738
+                                                    <a href="/user?ref=history&id={{id}}" class="btn btn-outline-primary btn-sm">🔎</a>
                                                 </td>
                                             </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>

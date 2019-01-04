@@ -1,5 +1,6 @@
 const express = require('express');
 const cartModel = require('../models/cartModel');
+const orderModel = require('../models/orderModel');
 const productModel = require('../models/productModel');
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get('/', (req, res) => {
     var items = [];
     Promise.all(arr_p).then(result => {
         var totalPrice = 0;
-        for (var i = result.length - 1; i >= 0; i--) {
+        for (var i = 0; i < result.length; i++) {
             var pro = result[i][0];
             var item = {
                 product: pro,
@@ -45,11 +46,40 @@ router.post('/', (req, res) => {
         res.redirect(req.headers.referer);
     }
     else if (ref == 'remove') {
-        cartModel.remove(req.session.cart, req.query.id);
+        if (req.session.cart.length > 1) {
+            cartModel.remove(req.session.cart, req.query.id);
+        }
+        else {
+            req.session.cart = [];
+        }
         res.redirect(req.headers.referer);
     }
     else if (ref == 'update') {
+        //console.log(req.body);
+        for (var i = 0; i < req.session.cart.length; i++) {}
         res.redirect(req.headers.referer);
+    }
+    else if (ref == 'confirm') {
+        if (req.session.isLogged == true) {
+            if (req.session.cart.length > 0) {
+                orderModel.add(req.session.user.id).then(rows => {
+                    orderModel.findLastest().then(result => {
+                        var id = result[0].id;
+                        for (var i = 0; i < req.session.cart.length; i++) {
+                            orderModel.addDetail(id, req.session.cart[i]);
+                        }
+                        req.session.cart = [];
+                        res.redirect('/');
+                    });
+                });
+            }
+            else {
+                res.redirect('/cart');
+            }
+        }
+        else {
+            res.redirect('/user');
+        }
     }
 })
 

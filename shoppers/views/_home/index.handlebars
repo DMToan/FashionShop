@@ -49,14 +49,16 @@
             <div class="site-top-icons">
               <ul>
                 <li>
-                  <form id="frmLogout" method="post" action="/user?id=logout"></form>
+                  <form id="frmLogout" method="post" action="/user?ref=logout"></form>
                   {{#if layoutVM.isLogged}}
                   {{!-- đã login --}}
                   <div class="dropdown">
-                    <a href="#" data-toggle="dropdown"><span class="icon icon-person"></span></a>
+                    <a href="#" data-toggle="dropdown">
+                      <span class="icon icon-person"></span>
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                      <a href="user?id=profile" class="dropdown-item">Profile</a>
-                      <a href="user?id=history" class="dropdown-item">My Orders</a>
+                      <a href="user?ref=profile" class="dropdown-item">Profile</a>
+                      <a href="user?ref=history" class="dropdown-item">History</a>
                       <div class="dropdown-divider"></div>
                       <a href="#" class="dropdown-item" onclick="log_out()">Logout</a>
                     </div>
@@ -88,7 +90,6 @@
         </div>
       </div>
     </div>
-    {{#if layoutVM.notUser}}
     <nav class="site-navigation text-right text-md-center" role="navigation">
       <div class="container">
         <ul class="site-menu js-clone-nav d-none d-md-block">
@@ -103,7 +104,6 @@
         </ul>
       </div>
     </nav>
-    {{/if}}
   </header>
 
   {{{body}}}
