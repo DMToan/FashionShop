@@ -31,8 +31,8 @@
                 {{#each bills}}
                 <tr>
                   <td>{{id}}</td>
-                  <td>{{add_day}}</td>
-                  <td>{{delivery_day}}</td>
+                  <td>{{date_format add_day}}</td>
+                  <td>{{date_format delivery_day}}</td>
                   <td>{{address}}</td>
                   <td><span class="label label-info">{{status}}</span></td>
                   <td><a href="/user?ref=history&id={{id}}" class="btn btn-primary btn-sm">🔎</a></td>

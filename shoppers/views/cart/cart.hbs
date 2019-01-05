@@ -33,21 +33,21 @@
                     <img src="images/product/{{product.img}}" alt="Image" class="img-fluid" style="max-height: 80px;">
                   </td>
                   <td class="product-name">
-                    <h2 class="h5 text-black">{{product.name}}</h2>
+                    <h2 class="h5 text-black"><a href="/shop?id={{product.id}}">{{product.name}}</a></h2>
                   </td>
                   <td>{{number_format product.price}}₫</td>
-                  <td>
-                    <div class="input-group" style="max-width: 200px;">
+                  <td>{{quantity}}
+                    {{!-- <div class="input-group" style="max-width: 200px;">
                       <div class="input-group-prepend"><button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button></div>
                       <input name="quantity" type="text" class="form-control text-center" value="{{quantity}}">
                       <div class="input-group-append"><button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button></div>
-                    </div>
+                    </div> --}}
                   </td>
                   <td>{{number_format total}}₫</td>
                   <td>
-                    <form class="form-horizontal" id="frmDeleteItem" method="post" action="/cart?ref=update&id={{product.id}}">
+                    {{!-- <form class="form-horizontal" id="frmUpdateItem" method="post" action="/cart?ref=updated&id={{product.id}}">
                       <button class="btn btn-success btn-sm" type="submit">⭯</button>
-                    </form>
+                    </form> --}}
                     <form class="form-horizontal" id="frmDeleteItem" method="post" action="/cart?ref=remove&id={{product.id}}">
                       <button class="btn btn-danger btn-sm" type="submit">✕</button>
                     </form>

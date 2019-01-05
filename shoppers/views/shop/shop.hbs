@@ -27,12 +27,13 @@
                     Filter
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                    <a class="dropdown-item" href="/shop?filter=">All</a>
                     {{#each categories}}
                     <a class="dropdown-item" href="/shop?filter={{category.id}}">{{category.name}}</a>
                     {{/each}}
                   </div>
                 </div>
-                <div class="btn-group">
+                <div class="dropdown mr-1">
                   <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference"
                     data-toggle="dropdown">Soft by</button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">

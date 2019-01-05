@@ -54,9 +54,11 @@ router.post('/', (req, res) => {
         }
         res.redirect(req.headers.referer);
     }
-    else if (ref == 'update') {
-        //console.log(req.body);
-        for (var i = 0; i < req.session.cart.length; i++) {}
+    else if (ref == 'updated') {
+        var id = req.query.id;
+        console.log(id);
+        var new_quantity = req.body.quantity;
+        console.log(new_quantity);
         res.redirect(req.headers.referer);
     }
     else if (ref == 'confirm') {

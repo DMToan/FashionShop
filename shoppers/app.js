@@ -30,6 +30,14 @@ app.engine('hbs', exphbs({
             });
             return nf.to(n);
         },
+        date_format: d => {
+            var day = new Date(d);
+            var str = day.getDate() + '/' + (day.getMonth() + 1) + '/' + day.getFullYear();
+            return str;
+        },
+        day_format: n => {
+            return n.toLocaleDateString();
+        }
     }
 }));
 app.set('view engine', 'hbs');

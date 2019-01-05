@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
                         count: count,
                         total: total
                     }
-                    console.log(vm);
+                    //console.log(vm);
                     res.render('user/history-detail', vm);
                 });
             }
