@@ -36,12 +36,12 @@
                     <h2 class="h5 text-black"><a href="/shop?id={{product.id}}">{{product.name}}</a></h2>
                   </td>
                   <td>{{number_format product.price}}₫</td>
-                  <td>
-                    <div class="input-group" style="max-width: 200px;margin-left: 73px;">
+                  <td>{{quantity}}
+                    {{!-- <div class="input-group" style="max-width: 200px;margin-left: 73px;">
                       <div class="input-group-prepend"><button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button></div>
                       <input name="quantity" type="text" class="form-control text-center" value="{{quantity}}">
                       <div class="input-group-append"><button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button></div>
-                    </div>
+                    </div> --}}
                   </td>
                   <td>{{number_format total}}₫</td>
                   <td>
